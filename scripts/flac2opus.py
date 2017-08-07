@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+import multiprocessing
 import os
 import subprocess
 import sys
@@ -78,10 +79,7 @@ def main():
         print('Error: opusenc not found')
         exit(-1)
 
-    files = set(sys.argv[1:])
-    bad_files = set(f for f in files if not is_flac(f))
-
-    files = files.difference(bad_files)
+    files = set(f for f in sys.argv[1:] if is_flac(f))
 
     global nb_files
     nb_files = len(files)
@@ -92,7 +90,7 @@ def main():
 
     print_progress()
 
-    with ThreadPoolExecutor(max_workers=8) as e:
+    with ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as e:
         for f in files:
             e.submit(convert_file, f)
     print('')
