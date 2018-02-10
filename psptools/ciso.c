@@ -112,7 +112,7 @@ int decomp_ciso(void) {
     ciso_total_block = ciso.total_bytes / ciso.block_size;
 
     /* allocate index block */
-    index_size = (ciso_total_block + 1 ) * sizeof(unsigned long);
+    index_size = (ciso_total_block + 1 ) * sizeof(uint32_t);
     index_buf  = malloc(index_size);
     block_buf1 = malloc(ciso.block_size);
     block_buf2 = malloc(ciso.block_size*2);
@@ -234,7 +234,7 @@ int comp_ciso(int level) {
     }
 
     /* allocate index block */
-    index_size = (ciso_total_block + 1 ) * sizeof(unsigned long);
+    index_size = (ciso_total_block + 1 ) * sizeof(uint32_t);
     index_buf  = malloc(index_size);
     crc_buf    = malloc(index_size);
     block_buf1 = malloc(ciso.block_size);

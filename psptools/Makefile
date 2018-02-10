@@ -12,7 +12,7 @@ RM=rm -f
 all:	$(PROGRAMS)
 
 ciso:	ciso.c
-	$(CC) $(CFLAGS) -m32 -o $@ $< $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 pbp-pack:	pbp-pack.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
