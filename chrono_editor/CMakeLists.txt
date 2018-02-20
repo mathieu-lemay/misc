@@ -1,15 +1,15 @@
 cmake_minimum_required(VERSION 2.8)
 
-PROJECT(ctse)
-FIND_PACKAGE(Qt4 REQUIRED)
+project(ctse)
+find_package(Qt5Widgets REQUIRED)
 
-SET(ctse_SOURCES character.cpp game.cpp gui.cpp main.cpp sramfile.cpp)
-SET(ctse_HEADERS character.h game.h gui.h sramfile.h strings.h struct.h)
+set(ctse_SOURCES character.cpp game.cpp gui.cpp main.cpp sramfile.cpp)
+set(ctse_HEADERS character.h game.h gui.h sramfile.h strings.h struct.h)
 
-QT4_WRAP_CPP(ctse_HEADERS_MOC gui.h)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-INCLUDE(${QT_USE_FILE})
-ADD_DEFINITIONS(${QT_DEFINITIONS})
+add_executable(ctse ${ctse_SOURCES} ${ctse_HEADERS_MOC})
+qt5_use_modules(ctse Core Widgets)
 
-ADD_EXECUTABLE(ctse ${ctse_SOURCES} ${ctse_HEADERS_MOC})
-TARGET_LINK_LIBRARIES(ctse ${QT_LIBRARIES})
+target_link_libraries(ctse ${QT_LIBRARIES})
