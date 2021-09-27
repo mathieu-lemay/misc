@@ -8,6 +8,7 @@ set(ctse_HEADERS character.h game.h gui.h sramfile.h strings.h struct.h)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set (CMAKE_CXX_STANDARD 11)
 
 add_executable(ctse ${ctse_SOURCES} ${ctse_HEADERS_MOC})
 qt5_use_modules(ctse Core Widgets)
