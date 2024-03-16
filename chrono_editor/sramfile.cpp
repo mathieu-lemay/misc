@@ -31,11 +31,11 @@
 
 using namespace std;
 
-SRAMFile::SRAMFile(const std::string fn) throw(exception) {
+SRAMFile::SRAMFile(const std::string fn) {
     _fn = fn;
 }
 
-void SRAMFile::read() throw(exception) {
+void SRAMFile::read() {
     fstream file;
     long s;
 
@@ -62,7 +62,7 @@ void SRAMFile::read() throw(exception) {
     file.close();
 }
 
-void SRAMFile::write() throw(exception) {
+void SRAMFile::write() {
     fstream file;
     file.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
 

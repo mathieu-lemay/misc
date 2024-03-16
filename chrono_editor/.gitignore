@@ -1,11 +1,4 @@
-smse-1.0a
+/build
 
-#Qt generated files
-/bin
-/moc
-
-*.scite_session
-*.zst
 *.srm
-
 !test.srm

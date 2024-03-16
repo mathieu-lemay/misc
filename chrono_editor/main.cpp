@@ -31,12 +31,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    QTranslator tr;
     MainWindow *win;
-
-    QString locale = QLocale::system().name().section('_', 0, 0);
-    tr.load(QString("chrono_editor_") + locale);
-    app.installTranslator(&tr);
 
     if (argc == 2) {
         win = new MainWindow(argv[1]);

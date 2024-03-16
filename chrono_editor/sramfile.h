@@ -27,10 +27,10 @@
 
 class SRAMFile {
 public:
-    SRAMFile(const std::string fn) throw(std::exception);
+    SRAMFile(const std::string fn);
 
-    void read() throw(std::exception);
-    void write() throw(std::exception);
+    void read();
+    void write();
 
     Game *getGame(int gameNo);
     void setGame(Game *game, int gameNo);
